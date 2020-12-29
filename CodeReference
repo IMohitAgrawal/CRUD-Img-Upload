@@ -20,7 +20,7 @@ Install NuGet Package "Microsoft.EntityFrameworkCore" , "Microsoft.EntityFramewo
 Create Controller "FileUploadCrudController"
 Create Model "ImageCrudClass" , "ApplicationDbContext"
 
-Get your connection string in selecting Server Explorer->Data Connection->Right Click Add Connection->Then create your connection.
+Get your connection string in selecting Server Explorer->Data Connection->Right Click Add Connection->Then create your connection
 
 Add ConnectionString in appsettings.json file.
 
