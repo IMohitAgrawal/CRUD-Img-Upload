@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CRUD_Img_Upload.Models.ImageCrudClass>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Implementing CRUD Operation with File Upload Control</h1>
+<h2>Asp.Net Core MVC</h2>
+<hr/>
+<form method="post" enctype="multipart/form-data" asp-controller="FileUploadCrud" asp-action="Index">
+    <p>
+        <input type="file" name="fileobj"/>
+        <input type="submit" value="Upload"/>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imgid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imgname)
+                </th>
+                <th>
+                    Image
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imgid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imgname)
+                    </td>
+                    <td>
+                        <img src="~/Images/@item.Imgname" height="80" width="120" />
+                        @*@Html.DisplayFor(modelItem => item.Imgpath)*@
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Imgid }) |
+                        @Html.ActionLink("Details", "Details", new {  id=item.Imgid }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Imgid })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

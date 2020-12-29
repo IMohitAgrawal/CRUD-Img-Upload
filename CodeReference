@@ -1,0 +1,36 @@
+Step 1:-
+
+create database EMP
+
+create table Saveimg
+(
+Imgid int not null primary key identity(1,1),
+Imgname nvarchar(150),
+Imgpath nvarchar(max)
+)
+
+Step 2:-
+
+Create ASP.Net Core Web Application -> Then Choose MVC Template
+
+Step 3:-
+
+Install NuGet Package "Microsoft.EntityFrameworkCore" , "Microsoft.EntityFrameworkCore.SqlServer"
+
+Create Controller "FileUploadCrudController"
+Create Model "ImageCrudClass" , "ApplicationDbContext"
+
+Add ConnectionString in appsettings.json file.
+
+Add services in "ConfigureServices" function in Startup.cs file.
+
+Add HttpPost and get  -Index Method in "FileUploadCrudController" Controller.
+
+Add Get-Index View by selecting Template: List and Model Class: ImageCrudClass. And do some changes accordingly.
+
+This is Edit Functionality:- Add more method like Edit(...) and Edit(More parameters),after creating the last edit method create View by selecting template: Edit and model class.
+
+This is Details Functionality:- Add more method like Details(More parameters),after creating method create View by selecting template: Details and model class.
+
+This is Delete Functionality:- Add more method like Delete(...) and Delete(More parameters),after creating last delete method create View by selecting template: Delete and model class.
+

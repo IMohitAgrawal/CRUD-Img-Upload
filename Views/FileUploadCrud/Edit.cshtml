@@ -1,0 +1,50 @@
+﻿@model CRUD_Img_Upload.Models.ImageCrudClass
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ImageCrudClass</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" asp-controller="FileUploadCrud" enctype="multipart/form-data">
+            <p>
+                <input type="file" name="fileobj" /> @*Here The fileobj is parameter name of the function*@
+                <input type="submit" value="Upload" />
+            </p>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Imgid" class="control-label"></label>
+                <input asp-for="Imgid" class="form-control" readonly />
+                <span asp-validation-for="Imgid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imgname" class="control-label"></label>
+                <input asp-for="Imgname" class="form-control" readonly />
+                <span asp-validation-for="Imgname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imgpath" class="control-label"></label>
+
+                <img src="~/Images/@Html.DisplayFor(model=>model.Imgname)" height="80" width="120" />
+                @*<input asp-for="Imgpath" class="form-control" />*@
+
+                <span asp-validation-for="Imgpath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
